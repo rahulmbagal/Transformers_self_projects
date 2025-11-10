@@ -29,3 +29,11 @@ Because you’re working with business tabular data (leads + accounts) rather th
 3.	Monitor which method yields better conversion prediction on Group 1 (cold starts) — compare AUC, calibration, adaptation speed (few shots).
 4.	Ensure practicality: tabular data, business constraints, interpretability, speed in deployment.
 
+
+
+---------------------------------------------------
+**for multi class loss:**
+counts = torch.bincount(y, minlength=num_classes).float() 
+total = counts.sum() 
+weights = total / (num_classes * counts) 
+weights = weights / weights.mean() # normalize criterion = nn.CrossEntropyLoss(weight=weights.to(device))
