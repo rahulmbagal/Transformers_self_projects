@@ -31,8 +31,10 @@ Because you’re working with business tabular data (leads + accounts) rather th
 
 
 
----------------------------------------------------
+---------------------------------------------------________________________________________
+
 **for multi class loss:**
+
 counts = torch.bincount(y, minlength=num_classes).float() 
 
 total = counts.sum() 
