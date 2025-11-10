@@ -34,6 +34,9 @@ Because you’re working with business tabular data (leads + accounts) rather th
 ---------------------------------------------------
 **for multi class loss:**
 counts = torch.bincount(y, minlength=num_classes).float() 
+
 total = counts.sum() 
+
 weights = total / (num_classes * counts) 
+
 weights = weights / weights.mean() # normalize criterion = nn.CrossEntropyLoss(weight=weights.to(device))
